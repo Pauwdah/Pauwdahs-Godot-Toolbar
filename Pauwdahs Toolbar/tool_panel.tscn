@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://cu3e8fbn7ehts"]
+
+[ext_resource type="Script" path="res://addons/Pauwdahs Toolbar/tool_panel.gd" id="1_0rucx"]
+[ext_resource type="Texture2D" uid="uid://brv441bksnhim" path="res://addons/Pauwdahs Toolbar/icon_process_yes.png" id="1_xnkde"]
+[ext_resource type="Texture2D" uid="uid://cog1l1ephxmvi" path="res://addons/Pauwdahs Toolbar/Icon_physics_process_yes.png" id="3_kd76c"]
+
+[node name="Pauwdah\'s Toolbar" type="VBoxContainer"]
+script = ExtResource("1_0rucx")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="ProcessToggleButton" type="Button" parent="HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 0
+tooltip_text = "Toggles the processing state of selected objects. (INHERIT/DISABLED)"
+icon = ExtResource("1_xnkde")
+flat = true
+
+[node name="PhysicsProcessToggleButton" type="Button" parent="HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 0
+tooltip_text = "Toggles the processing state of selected objects. (INHERIT/DISABLED)"
+icon = ExtResource("3_kd76c")
+flat = true
+
+[connection signal="pressed" from="HBoxContainer/ProcessToggleButton" to="." method="_on_process_toggle_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/PhysicsProcessToggleButton" to="." method="_on_physics_process_toggle_button_pressed"]
